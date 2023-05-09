@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Weather app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+</head>
+
+
+  <link rel="stylesheet" href="src/styles.css" />
+  <body>
+    <div class="container">
+   <h1>The Weather Outside is Weather</h1>
+  <div class="container" id="mainContainer">
+      <form id="locationForm">
+        <input class="searchbar" type="text" autocomplete="off" placeholder="Location" id="searchbarInput" />
+        <input class="searchbutton" type="submit" value="Search" />
+      </form>
+<br>
+<section class="middle-part">
+  <button id="currentLocation"> Current Location </button>
+        <h2><strong> Utrecht, NL</strong></h2>
+        <p class="Date-and-time" id="dateTime1"> 
+           Monday 3rd April </p>
+       <p class="Date-and-time" id="dateTime2"> 14:34 </p>
+        <div class="middle-text">
+            <img src="src/svg/day.svg" alt="sun-picture" class="sun-picture"img style="float: left"style="display:table"></img>
+            <br>
+             <div class="main-list">
+             <button id="mainTemperature" > <strong>12°C</strong></button> 
+             <p id="weatherText">Sweater Weather 😎</p>
+             <br>
+             <p id="windSpeed"> Wind: 12 km/h</p>
+             <p id="humidity">Precipitation: 6%</p>
+             </div>
+         </div>
+</section>
+<br>
+<br>
+<div class="container" id="forecastContainer">
+  <div class="row"> 
+    <div class="col">
+      
+        <h4>Tomorrow</h4>
+    <img src="src/svg/fair-day.svg"class="weather-icon"></img>
+    13°C
+    <br>
+    </div>
+
+    <div class="col-3" id="colThurs">
+      <h4>Thursday</h4>
+      <img src="src/svg/cloudy-day-1.svg" class="weather-icon"></img>
+      10°C
+      <br>
+      </div>
+
+    <div class="col-3" id="colFri">
+        <h4>Friday</h4>
+       <img src="src/svg/cloudy.svg"class="weather-icon"></img>
+       10°C
+       <br>
+        </div>
+        
+      <div class="col-3" id="colSat">
+        <h4>Saturday</h4>
+      <img src="src/svg/partly-cloudy-day.svg"class="weather-icon"></img>
+      11°C
+      <br>
+    </div>
+  </div>
+  </div>
+  </div>
+  <br>
+  <br>
+</div>
+<script src="src/index.js"></script>
+  </body>
+</html>
