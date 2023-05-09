@@ -10,7 +10,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 let now = new Date();
 let day = days[now.getDay()];
@@ -28,7 +28,7 @@ let months = [
   "Sept",
   "Oct",
   "Nov",
-  "Dec"
+  "Dec",
 ];
 const today = new Date();
 let month = months[now.getMonth()];
