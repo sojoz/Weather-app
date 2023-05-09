@@ -112,3 +112,23 @@ h4 {
 #colSat {
   border-left: 1px solid #053766;
 }
+
+#githubLogo {
+  background: transparent;
+  width: 40px;
+  display: block;
+  margin: 0 auto;
+}
+#githubLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #6b49ff;
+  font-size: small;
+}
+
+#githubLink:hover {
+  color: #b32aff;
+}
