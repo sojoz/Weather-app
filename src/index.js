@@ -109,6 +109,7 @@ let form1 = document.querySelector("#locationForm");
 form1.addEventListener("submit", searchLocation);
 
 function showTemperature(response) {
+  console.log(response.data);
   let h2 = document.querySelector("h2");
   let temperature = Math.round(response.data.main.temp);
   let button1 = document.querySelector("#mainTemperature");
@@ -116,6 +117,7 @@ function showTemperature(response) {
   let windSpeed1 = Math.round(response.data.wind.speed);
   let humdity1 = response.data.main.humidity;
   h2.innerHTML = response.data.name;
+
   button1.innerHTML = `${temperature}°C`;
   weatherText.innerHTML = `${tempDescription}`;
   windSpeed.innerHTML = `Wind: ${windSpeed1} m/h`;
