@@ -95,7 +95,6 @@ cTof.addEventListener("click", convertTemperature);
 
 function searchLocation(event) {
   event.preventDefault();
-
   let searchInput = document.querySelector("#searchbarInput").value;
   let city = searchInput;
   let apiKey = "05af9d47239cd7aaf08f34ff3be4d1d6";
@@ -109,6 +108,7 @@ function searchLocation(event) {
 let form1 = document.querySelector("#locationForm");
 form1.addEventListener("submit", searchLocation);
 
+// Display for temperature and weather features
 function showTemperature(response) {
   let h2 = document.querySelector("h2");
   let temperature = Math.round(response.data.main.temp);
@@ -127,7 +127,7 @@ function showTemperature(response) {
   changeWeatherIcon(response);
 }
 
-// weather icons
+// Weather icons
 function changeWeatherIcon(response) {
   if (response.data.weather[0].main == "Rain") {
     weatherIcon.src = "src/svg/rain.svg";
