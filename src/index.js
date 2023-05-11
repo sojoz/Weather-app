@@ -153,6 +153,10 @@ function changeWeatherIcon(response) {
     weatherIcon.src = "src/svg/snowy-1.svg";
   } else if (response.data.weather[0].description == "mist") {
     weatherIcon.src = "src/svg/fog.svg";
+  } else if (response.data.weather[0].description == "light rain") {
+    weatherIcon.src = "src/svg/rainy-1-day.svg";
+  } else if (response.data.weather[0].description == "heavy snow") {
+    weatherIcon.src = "src/svg/snowy-3.svg";
   }
 }
 // Geolocation
