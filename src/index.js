@@ -2,6 +2,18 @@
 
 import rainIcon from "./svg/rain.svg";
 import overcastIcon from "./svg/cloudy.svg";
+import brokenClouds from "./svg/cloudy-day-1.svg";
+import drizzleIcon from "./svg/rainy-1.svg";
+import snowIcon from "./svg/snowy-2.svg";
+import clearIcon from "./svg/sunny-day.svg";
+import ThunderstormIcon from "./svg/thunderstorms.svg";
+import fewCloudsIcon from "./svg/cloudy-day-1.svg";
+import freezingRainIcon from "./svg/rain-and-snow-mix.svg";
+import scatteredCloudsIcon from "./svg/cloudy-day-3.svg";
+import lightSnowIcon from "./svg/snowy-1.svg";
+import mistIcon from "./svg/fog.svg";
+import lightRainIcon from "./svg/rainy-1-day.svg";
+import heavySnowIcon from "./svg/snowy-3.svg";
 
 // Date and Time code
 
@@ -138,31 +150,31 @@ function changeWeatherIcon(response) {
   if (response.data.weather[0].main == "Rain") {
     weatherIcon.src = rainIcon;
   } else if (response.data.weather[0].description == "broken clouds") {
-    weatherIcon.src = "src/svg/cloudy-day-1.svg";
+    weatherIcon.src = brokenCloudsIcon;
   } else if (response.data.weather[0].main == "Drizzle") {
-    weatherIcon.src = "src/svg/rainy-1.svg";
+    weatherIcon.src = drizzleIcon;
   } else if (response.data.weather[0].main == "Snow") {
-    weatherIcon.src = "src/svg/snowy-2.svg";
+    weatherIcon.src = snowIcon;
   } else if (response.data.weather[0].main == "Clear") {
-    weatherIcon.src = "src/svg/sunny-day.svg";
+    weatherIcon.src = clearIcon;
   } else if (response.data.weather[0].main == "Thunderstorm") {
-    weatherIcon.src = "src/svg/thunderstorms.svg";
+    weatherIcon.src = ThunderstormIcon;
   } else if (response.data.weather[0].description == "few clouds") {
-    weatherIcon.src = "src/svg/cloudy-day-1.svg";
+    weatherIcon.src = fewCloudsIcon;
   } else if (response.data.weather[0].description == "freezing rain") {
-    weatherIcon.src = "src/svg/rain-and-snow-mix.svg";
+    weatherIcon.src = freezingRainIcon;
   } else if (response.data.weather[0].description == "scattered clouds") {
-    weatherIcon.src = "src/svg/cloudy-day-3.svg";
+    weatherIcon.src = scatteredCloudsIcon;
   } else if (response.data.weather[0].description == "overcast clouds") {
     weatherIcon.src = overcastIcon;
   } else if (response.data.weather[0].description == "light snow") {
-    weatherIcon.src = "src/svg/snowy-1.svg";
+    weatherIcon.src = lightSnowIcon;
   } else if (response.data.weather[0].description == "mist") {
-    weatherIcon.src = "src/svg/fog.svg";
+    weatherIcon.src = mistIcon;
   } else if (response.data.weather[0].description == "light rain") {
-    weatherIcon.src = "src/svg/rainy-1-day.svg";
+    weatherIcon.src = lightRainIcon;
   } else if (response.data.weather[0].description == "heavy snow") {
-    weatherIcon.src = "src/svg/snowy-3.svg";
+    weatherIcon.src = heavySnowIcon;
   }
 }
 // Geolocation
