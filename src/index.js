@@ -2,11 +2,11 @@
 
 import rainIcon from "./svg/rain.svg";
 import overcastIcon from "./svg/cloudy.svg";
-import brokenClouds from "./svg/cloudy-day-1.svg";
+import brokenCloudsIcon from "./svg/cloudy-day-1.svg";
 import drizzleIcon from "./svg/rainy-1.svg";
 import snowIcon from "./svg/snowy-2.svg";
 import clearIcon from "./svg/sunny-day.svg";
-import ThunderstormIcon from "./svg/thunderstorms.svg";
+import ThunderstormIcon from "./svg/thunder.svg";
 import fewCloudsIcon from "./svg/cloudy-day-1.svg";
 import freezingRainIcon from "./svg/rain-and-snow-mix.svg";
 import scatteredCloudsIcon from "./svg/cloudy-day-3.svg";
