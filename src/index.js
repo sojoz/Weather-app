@@ -1,7 +1,7 @@
 //importing icons
 
-import rainIcon from "src/svg/rain.svg";
-import overcastIcon from "src/svg/cloudy.svg";
+import rainIcon from "./svg/rain.svg";
+import overcastIcon from "./svg/cloudy.svg";
 
 // Date and Time code
 
