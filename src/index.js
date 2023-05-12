@@ -1,6 +1,7 @@
 //importing icons
 
 import rainIcon from "src/svg/rain.svg";
+import overcastIcon from "src/svg/cloudy.svg";
 
 // Date and Time code
 
@@ -153,7 +154,7 @@ function changeWeatherIcon(response) {
   } else if (response.data.weather[0].description == "scattered clouds") {
     weatherIcon.src = "src/svg/cloudy-day-3.svg";
   } else if (response.data.weather[0].description == "overcast clouds") {
-    weatherIcon.src = "src/svg/cloudy.svg";
+    weatherIcon.src = overcastIcon;
   } else if (response.data.weather[0].description == "light snow") {
     weatherIcon.src = "src/svg/snowy-1.svg";
   } else if (response.data.weather[0].description == "mist") {
