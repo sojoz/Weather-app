@@ -1,3 +1,7 @@
+//importing icons
+
+import rainIcon from "src/svg/rain.svg";
+
 // Date and Time code
 
 let p = document.querySelector("dateTime1");
@@ -44,6 +48,7 @@ dateTime1.innerHTML = `${day}, ${monthDay} ${month} `;
 dateTime2.innerHTML = `${currentTime} `;
 
 const weatherIcon = document.querySelector(".sun-picture");
+
 // Form code
 
 function search(event) {
@@ -130,7 +135,7 @@ function showTemperature(response) {
 // Weather icons
 function changeWeatherIcon(response) {
   if (response.data.weather[0].main == "Rain") {
-    weatherIcon.src = "src/svg/rain.svg";
+    weatherIcon.src = rainIcon;
   } else if (response.data.weather[0].description == "broken clouds") {
     weatherIcon.src = "src/svg/cloudy-day-1.svg";
   } else if (response.data.weather[0].main == "Drizzle") {
