@@ -94,25 +94,6 @@ h4 {
   text-align: center;
 }
 
-#forecastContainer .col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin: 0 10px;
-  padding: 0px;
-}
-
-#colThurs {
-  border-left: 1px solid #053766;
-}
-#colFri {
-  border-left: 1px solid #053766;
-}
-#colSat {
-  border-left: 1px solid #053766;
-}
-
 #githubLogo {
   background: transparent;
   width: 40px;
