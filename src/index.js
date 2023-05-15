@@ -107,8 +107,7 @@ function convertTemperature(event) {
 let cTof = document.querySelector("#mainTemperature");
 cTof.addEventListener("click", convertTemperature);
 
-// Geolocation and temperature
-
+// Geolocation and temperature/
 //Temperature
 
 function searchLocation(event) {
@@ -122,9 +121,10 @@ function searchLocation(event) {
     showTemperature(response);
   });
 }
-
 let form1 = document.querySelector("#locationForm");
 form1.addEventListener("submit", searchLocation);
+
+displayForecast();
 
 // Display for temperature and weather features
 function showTemperature(response) {
@@ -176,6 +176,28 @@ function changeWeatherIcon(response) {
   } else if (response.data.weather[0].description == "heavy snow") {
     weatherIcon.src = heavySnowIcon;
   }
+}
+
+// Display Forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecastContainer");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thurs", "Fri", "Sat", "Sun"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col">
+      <h4>{$day}</h4>
+      <img src="src/svg/fair-day.svg"class="weather-icon"></img> 13°C
+      <br>
+      </div>
+`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
 }
 // Geolocation
 
