@@ -125,9 +125,23 @@ function searchLocation(event) {
 let form1 = document.querySelector("#locationForm");
 form1.addEventListener("submit", searchLocation);
 
-displayForecast();
+//API weather Forecast
 
+function displayForecast(response) {
+  console.log(response.data);
+}
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let lat = coordinates.latitude;
+  let lon = coordinates.longitude;
+
+  let apiKey = "34ae1065362d42545661451bda2b8a1f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
 // Display for temperature and weather features
+
 function showTemperature(response) {
   let h2 = document.querySelector("h2");
   let temperature = Math.round(response.data.main.temp);
@@ -144,7 +158,10 @@ function showTemperature(response) {
   humidity.innerHTML = `Humidity: ${humdity1}%`;
 
   changeWeatherIcon(response);
+
+  getForecast(response.data.coord);
 }
+
 //Display Forecast
 
 function displayForecast() {
