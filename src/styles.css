@@ -87,13 +87,38 @@ p {
 h4 {
   font-size: small;
 }
-#forecastContainer {
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.forecastContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
+.col-3 {
+  width: fit-content;
+  font-size: x-small;
+}
+
+.weather-forecast-max {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: x-small;
+}
+
+.weather-forecast-min {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: x-small;
+}
 #githubLogo {
   background: transparent;
   width: 40px;

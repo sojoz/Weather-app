@@ -1,20 +1,3 @@
-//importing icons
-
-import rainIcon from "./svg/rain.svg";
-import overcastIcon from "./svg/cloudy.svg";
-import brokenCloudsIcon from "./svg/cloudy-day-1.svg";
-import drizzleIcon from "./svg/rainy-1.svg";
-import snowIcon from "./svg/snowy-2.svg";
-import clearIcon from "./svg/sunny-day.svg";
-import ThunderstormIcon from "./svg/thunder.svg";
-import fewCloudsIcon from "./svg/cloudy-day-1.svg";
-import freezingRainIcon from "./svg/rain-and-snow-mix.svg";
-import scatteredCloudsIcon from "./svg/cloudy-day-3.svg";
-import lightSnowIcon from "./svg/snowy-1.svg";
-import mistIcon from "./svg/fog.svg";
-import lightRainIcon from "./svg/rainy-1-day.svg";
-import heavySnowIcon from "./svg/snowy-3.svg";
-
 // Date and Time code
 
 let p = document.querySelector("dateTime1");
@@ -133,7 +116,7 @@ function getForecast(coordinates) {
   let lon = coordinates.lon;
 
   let apiKey = "62bc298785543e137bc6756e514eb1c3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayForecast);
 }
@@ -162,61 +145,33 @@ function showTemperature(response) {
 //Display Forecast
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
   console.log(response.data.daily);
 
   let forecastElement = document.querySelector("#forecastContainer");
+  const forecastIcon = document.querySelector(".weather-icon");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thurs", "Fri", "Sat", "Sun"];
 
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
+    let temperatureMax = Math.round(forecastDay.temp.max);
+    let temperatureMin = Math.round(forecastDay.temp.min);
+    let forecastIcon = getForecastIcon(forecastDay);
     forecastHTML =
       forecastHTML +
       `
-  <div class="col">
-      <h4>${day}</h4>
-      <img src="src/svg/fair-day.svg"class="weather-icon"></img>
+  <div class="col col-3">
+      <h4>${forecastDay.dt}</h4>
+      <img src="${forecastIcon}"class="weather-icon" alt="weatherIcon" ></img>
       <br>
-       13°C
+      <span class="weather-forcast-max">${temperatureMax}°C</span>
       <br>
+      <span class="weather-forcast-min">${temperatureMin}°C </span>
       </div>
 `;
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-}
-
-// Weather icons
-function changeWeatherIcon(response) {
-  if (response.data.weather[0].main == "Rain") {
-    weatherIcon.src = rainIcon;
-  } else if (response.data.weather[0].description == "broken clouds") {
-    weatherIcon.src = brokenCloudsIcon;
-  } else if (response.data.weather[0].main == "Drizzle") {
-    weatherIcon.src = drizzleIcon;
-  } else if (response.data.weather[0].main == "Snow") {
-    weatherIcon.src = snowIcon;
-  } else if (response.data.weather[0].main == "Clear") {
-    weatherIcon.src = clearIcon;
-  } else if (response.data.weather[0].main == "Thunderstorm") {
-    weatherIcon.src = ThunderstormIcon;
-  } else if (response.data.weather[0].description == "few clouds") {
-    weatherIcon.src = fewCloudsIcon;
-  } else if (response.data.weather[0].description == "freezing rain") {
-    weatherIcon.src = freezingRainIcon;
-  } else if (response.data.weather[0].description == "scattered clouds") {
-    weatherIcon.src = scatteredCloudsIcon;
-  } else if (response.data.weather[0].description == "overcast clouds") {
-    weatherIcon.src = overcastIcon;
-  } else if (response.data.weather[0].description == "light snow") {
-    weatherIcon.src = lightSnowIcon;
-  } else if (response.data.weather[0].description == "mist") {
-    weatherIcon.src = mistIcon;
-  } else if (response.data.weather[0].description == "light rain") {
-    weatherIcon.src = lightRainIcon;
-  } else if (response.data.weather[0].description == "heavy snow") {
-    weatherIcon.src = heavySnowIcon;
-  }
 }
 
 // Geolocation
@@ -235,3 +190,69 @@ function getCurrentLocation(event) {
 
 let button = document.querySelector("#currentLocation");
 button.addEventListener("click", getCurrentLocation);
+
+// Function for desktop - cancel them out for Netflify
+
+function changeWeatherIcon(response) {
+  if (response.data.weather[0].main == "Rain") {
+    weatherIcon.src = "src/svg/rain.svg";
+  } else if (response.data.weather[0].description == "broken clouds") {
+    weatherIcon.src = "src/svg/cloudy.svg";
+  } else if (response.data.weather[0].main == "Drizzle") {
+    weatherIcon.src = "src/svg/cloudy-day-1.svg";
+  } else if (response.data.weather[0].main == "Snow") {
+    weatherIcon.src = "src/svg/rainy-1.svg";
+  } else if (response.data.weather[0].main == "Clear") {
+    weatherIcon.src = "src/svg/sunny-day.svg";
+  } else if (response.data.weather[0].main == "Thunderstorm") {
+    weatherIcon.src = "src/svg/sunny-day.svg";
+  } else if (response.data.weather[0].description == "few clouds") {
+    weatherIcon.src = "src/svg/fair-day.svg";
+  } else if (response.data.weather[0].description == "freezing rain") {
+    weatherIcon.src = "src/svg/cloudy-day-1.svg";
+  } else if (response.data.weather[0].description == "scattered clouds") {
+    weatherIcon.src = "src/svg/rain-and-snow-mix.svg";
+  } else if (response.data.weather[0].description == "overcast clouds") {
+    weatherIcon.src = "src/svg/cloudy-day-3.svg";
+  } else if (response.data.weather[0].description == "light snow") {
+    weatherIcon.src = "src/svg/snowy-1.svg";
+  } else if (response.data.weather[0].description == "mist") {
+    weatherIcon.src = "src/svg/fog.svg";
+  } else if (response.data.weather[0].description == "light rain") {
+    weatherIcon.src = "src/svg/rainy-1-day.svg";
+  } else if (response.data.weather[0].description == "heavy snow") {
+    weatherIcon.src = "src/svg/snowy-3.svg";
+  }
+}
+
+function getForecastIcon(forecastDay) {
+  if (forecastDay.weather[0].main == "Clear") {
+    return "src/svg/sunny-day.svg";
+  } else if (forecastDay.weather[0].description == "broken clouds") {
+    return "src/svg/cloudy.svg";
+  } else if (forecastDay.weather[0].main == "Drizzle") {
+    return "src/svg/cloudy-day-1.svg";
+  } else if (forecastDay.weather[0].main == "Snow") {
+    return "src/svg/rainy-1.svg";
+  } else if (forecastDay.weather[0].main == "Rain") {
+    return "src/svg/rain.svg";
+  } else if (forecastDay.weather[0].main == "Thunderstorm") {
+    return "src/svg/sunny-day.svg";
+  } else if (forecastDay.weather[0].description == "few clouds") {
+    return "src/svg/fair-day.svg";
+  } else if (forecastDay.weather[0].description == "freezing rain") {
+    return "src/svg/cloudy-day-1.svg";
+  } else if (forecastDay.weather[0].description == "scattered clouds") {
+    return "src/svg/rain-and-snow-mix.svg";
+  } else if (forecastDay.weather[0].description == "overcast clouds") {
+    return "src/svg/cloudy-day-3.svg";
+  } else if (forecastDay.weather[0].description == "light snow") {
+    return "src/svg/snowy-1.svg";
+  } else if (forecastDay.weather[0].description == "mist") {
+    return "src/svg/fog.svg";
+  } else if (forecastDay.weather[0].description == "light rain") {
+    return "src/svg/rainy-1-day.svg";
+  } else if (forecastDay.weather[0].description == "heavy snow") {
+    return "src/svg/snowy-3.svg";
+  }
+}
