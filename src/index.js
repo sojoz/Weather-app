@@ -1,19 +1,19 @@
 //importing icons
 
-//import rainIcon from "./svg/rain.svg";
-//import overcastIcon from "./svg/cloudy.svg";
-////import brokenCloudsIcon from "./svg/cloudy-day-1.svg";
-//import drizzleIcon from "./svg/rainy-1.svg";
-//import snowIcon from "./svg/snowy-2.svg";
-//import clearIcon from "./svg/sunny-day.svg";
-//import ThunderstormIcon from "./svg/thunder.svg";
-//import fewCloudsIcon from "./svg/cloudy-day-1.svg";
-//import freezingRainIcon from "./svg/rain-and-snow-mix.svg";
-//import scatteredCloudsIcon from "./svg/cloudy-day-3.svg";
-//import lightSnowIcon from "./svg/snowy-1.svg";
-//import mistIcon from "./svg/fog.svg";
-//import lightRainIcon from "./svg/rainy-1-day.svg";
-//import heavySnowIcon from "./svg/snowy-3.svg";
+import rainIcon from "./svg/rain.svg";
+import overcastIcon from "./svg/cloudy.svg";
+import brokenCloudsIcon from "./svg/cloudy-day-1.svg";
+import drizzleIcon from "./svg/rainy-1.svg";
+import snowIcon from "./svg/snowy-2.svg";
+import clearIcon from "./svg/sunny-day.svg";
+import ThunderstormIcon from "./svg/thunder.svg";
+import fewCloudsIcon from "./svg/cloudy-day-1.svg";
+import freezingRainIcon from "./svg/rain-and-snow-mix.svg";
+import scatteredCloudsIcon from "./svg/cloudy-day-3.svg";
+import lightSnowIcon from "./svg/snowy-1.svg";
+import mistIcon from "./svg/fog.svg";
+import lightRainIcon from "./svg/rainy-1-day.svg";
+import heavySnowIcon from "./svg/snowy-3.svg";
 
 // Date and Time code
 
@@ -132,8 +132,8 @@ function getForecast(coordinates) {
   let lat = coordinates.lat;
   let lon = coordinates.lon;
 
-  let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+  let apiKey = "05af9d47239cd7aaf08f34ff3be4d1d6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apikey}`;
 
   axios.get(apiUrl).then(displayForecast);
 }
@@ -157,12 +157,13 @@ function showTemperature(response) {
   changeWeatherIcon(response);
 
   getForecast(response.data.coord);
-
 }
 
 //Display Forecast
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
+
   let forecastElement = document.querySelector("#forecastContainer");
   let forecastHTML = `<div class="row">`;
   let days = ["Thurs", "Fri", "Sat", "Sun"];
