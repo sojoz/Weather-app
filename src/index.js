@@ -45,6 +45,15 @@ dateTime2.innerHTML = `${currentTime} `;
 
 const weatherIcon = document.querySelector(".sun-picture");
 
+// formatting forecast days
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 // Form code
 
 function search(event) {
@@ -152,22 +161,26 @@ function displayForecast(response) {
   const forecastIcon = document.querySelector(".weather-icon");
   let forecastHTML = `<div class="row">`;
 
-  forecast.forEach(function (forecastDay) {
+  forecast.forEach(function (forecastDay, index) {
     let temperatureMax = Math.round(forecastDay.temp.max);
     let temperatureMin = Math.round(forecastDay.temp.min);
     let forecastIcon = getForecastIcon(forecastDay);
-    forecastHTML =
-      forecastHTML +
-      `
+
+    if (index >= 1 && index <= 4) {
+      forecastHTML =
+        forecastHTML +
+        `
   <div class="col col-3">
-      <h4>${forecastDay.dt}</h4>
+      <h4>${formatDay(forecastDay.dt)}</h4>
       <img src="${forecastIcon}"class="weather-icon" alt="weatherIcon" ></img>
       <br>
-      <span class="weather-forcast-max">${temperatureMax}°C</span>
-      <br>
       <span class="weather-forcast-min">${temperatureMin}°C </span>
+      <br>
+      <span class="weather-forcast-max">${temperatureMax}°C</span>
+      
       </div>
 `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
