@@ -5,7 +5,7 @@ import overcastIcon from "./svg/cloudy.svg";
 import brokenCloudsIcon from "./svg/cloudy-day-1.svg";
 import drizzleIcon from "./svg/rainy-1.svg";
 import snowIcon from "./svg/snowy-2.svg";
-import clearIcon from "./svg/c.svg";
+import clearIcon from "./svg/day.svg";
 import ThunderstormIcon from "./svg/thunder.svg";
 import fewCloudsIcon from "./svg/cloudy-day-1.svg";
 import freezingRainIcon from "./svg/rain-and-snow-mix.svg";
