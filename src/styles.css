@@ -54,11 +54,7 @@ h2 {
   font-size: 30px;
   border: none;
   background: none;
-}
-
-#mainTemperature:hover {
-  cursor: pointer;
-  color: #053766;
+  font-weight: 300px;
 }
 
 .main-list {
@@ -70,12 +66,14 @@ h2 {
 #weatherText {
   font-size: 15px;
   text-transform: capitalize;
+  margin: 13px 0px 0px 0px;
 }
 .Date-and-time {
   text-align: center;
-  font-size: smaller;
+  font-size: small;
   padding: 0px;
   margin: 0px;
+  font-weight: 200px;
 }
 
 p {

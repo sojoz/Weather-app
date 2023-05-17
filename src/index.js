@@ -71,34 +71,6 @@ function search(event) {
 let form = document.querySelector("#locationForm");
 form.addEventListener("submit", search);
 
-// Degrees code
-
-function convertTemperature(event) {
-  event.preventDefault();
-  let button = document.querySelector("#mainTemperature");
-  let temperature = parseFloat(button.innerHTML);
-  let isCelsius = true;
-
-  if (button.getAttribute("data-original-temp") === null) {
-    button.setAttribute("data-original-temp", temperature);
-  } else {
-    temperature = parseFloat(button.getAttribute("data-original-temp"));
-  }
-
-  if (button.innerHTML.includes("°F")) {
-    button.innerHTML = `${temperature}°C`;
-    isCelsius = true;
-  } else {
-    button.innerHTML = `${temperature * 1.8 + 32}°F`;
-    isCelsius = false;
-  }
-
-  return isCelsius;
-}
-
-let cTof = document.querySelector("#mainTemperature");
-cTof.addEventListener("click", convertTemperature);
-
 // Geolocation and temperature
 
 //Temperature
