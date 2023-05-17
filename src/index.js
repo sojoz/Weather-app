@@ -1,3 +1,20 @@
+//cancel out importing files for DESKTOP usage
+
+import rainIcon from "./svg/rain.svg";
+import overcastIcon from "./svg/cloudy.svg";
+import brokenCloudsIcon from "./svg/cloudy-day-1.svg";
+import drizzleIcon from "./svg/rainy-1.svg";
+import snowIcon from "./svg/snowy-2.svg";
+import clearIcon from "./svg/c.svg";
+import ThunderstormIcon from "./svg/thunder.svg";
+import fewCloudsIcon from "./svg/cloudy-day-1.svg";
+import freezingRainIcon from "./svg/rain-and-snow-mix.svg";
+import scatteredCloudsIcon from "./svg/cloudy-day-3.svg";
+import lightSnowIcon from "./svg/snowy-1.svg";
+import mistIcon from "./svg/fog.svg";
+import lightRainIcon from "./svg/rainy-1-day.svg";
+import heavySnowIcon from "./svg/snowy-3.svg";
+
 // Date and Time code
 
 let p = document.querySelector("dateTime1");
@@ -44,6 +61,7 @@ dateTime1.innerHTML = `${day}, ${monthDay} ${month} `;
 dateTime2.innerHTML = `${currentTime} `;
 
 const weatherIcon = document.querySelector(".sun-picture");
+const forecastIcon = document.querySelector(".weather-icon");
 
 // formatting forecast days
 
@@ -130,7 +148,7 @@ function displayForecast(response) {
   console.log(response.data.daily);
 
   let forecastElement = document.querySelector("#forecastContainer");
-  const forecastIcon = document.querySelector(".weather-icon");
+
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
@@ -176,68 +194,132 @@ function getCurrentLocation(event) {
 let button = document.querySelector("#currentLocation");
 button.addEventListener("click", getCurrentLocation);
 
-// Function for desktop - cancel them out for Netflify
+// Cancel function changeWeatherIcon and getForecastIcon for DESKTOP
 
 function changeWeatherIcon(response) {
   if (response.data.weather[0].main == "Rain") {
-    weatherIcon.src = "src/svg/rain.svg";
+    weatherIcon.src = rainIcon;
   } else if (response.data.weather[0].description == "broken clouds") {
-    weatherIcon.src = "src/svg/cloudy.svg";
+    weatherIcon.src = brokenCloudsIcon;
   } else if (response.data.weather[0].main == "Drizzle") {
-    weatherIcon.src = "src/svg/cloudy-day-1.svg";
+    weatherIcon.src = drizzleIcon;
   } else if (response.data.weather[0].main == "Snow") {
-    weatherIcon.src = "src/svg/rainy-1.svg";
+    weatherIcon.src = snowIcon;
   } else if (response.data.weather[0].main == "Clear") {
-    weatherIcon.src = "src/svg/sunny-day.svg";
+    weatherIcon.src = clearIcon;
   } else if (response.data.weather[0].main == "Thunderstorm") {
-    weatherIcon.src = "src/svg/sunny-day.svg";
+    weatherIcon.src = ThunderstormIcon;
   } else if (response.data.weather[0].description == "few clouds") {
-    weatherIcon.src = "src/svg/fair-day.svg";
+    weatherIcon.src = fewCloudsIcon;
   } else if (response.data.weather[0].description == "freezing rain") {
-    weatherIcon.src = "src/svg/cloudy-day-1.svg";
+    weatherIcon.src = freezingRainIcon;
   } else if (response.data.weather[0].description == "scattered clouds") {
-    weatherIcon.src = "src/svg/rain-and-snow-mix.svg";
+    weatherIcon.src = scatteredCloudsIcon;
   } else if (response.data.weather[0].description == "overcast clouds") {
-    weatherIcon.src = "src/svg/cloudy-day-3.svg";
+    weatherIcon.src = overcastIcon;
   } else if (response.data.weather[0].description == "light snow") {
-    weatherIcon.src = "src/svg/snowy-1.svg";
+    weatherIcon.src = lightSnowIcon;
   } else if (response.data.weather[0].description == "mist") {
-    weatherIcon.src = "src/svg/fog.svg";
+    weatherIcon.src = mistIcon;
   } else if (response.data.weather[0].description == "light rain") {
-    weatherIcon.src = "src/svg/rainy-1-day.svg";
+    weatherIcon.src = lightRainIcon;
   } else if (response.data.weather[0].description == "heavy snow") {
-    weatherIcon.src = "src/svg/snowy-3.svg";
+    weatherIcon.src = heavySnowIcon;
   }
 }
 
-function getForecastIcon(forecastDay) {
-  if (forecastDay.weather[0].main == "Clear") {
-    return "src/svg/sunny-day.svg";
-  } else if (forecastDay.weather[0].description == "broken clouds") {
-    return "src/svg/cloudy.svg";
-  } else if (forecastDay.weather[0].main == "Drizzle") {
-    return "src/svg/cloudy-day-1.svg";
-  } else if (forecastDay.weather[0].main == "Snow") {
-    return "src/svg/rainy-1.svg";
-  } else if (forecastDay.weather[0].main == "Rain") {
-    return "src/svg/rain.svg";
-  } else if (forecastDay.weather[0].main == "Thunderstorm") {
-    return "src/svg/sunny-day.svg";
-  } else if (forecastDay.weather[0].description == "few clouds") {
-    return "src/svg/fair-day.svg";
-  } else if (forecastDay.weather[0].description == "freezing rain") {
-    return "src/svg/cloudy-day-1.svg";
-  } else if (forecastDay.weather[0].description == "scattered clouds") {
-    return "src/svg/rain-and-snow-mix.svg";
-  } else if (forecastDay.weather[0].description == "overcast clouds") {
-    return "src/svg/cloudy-day-3.svg";
-  } else if (forecastDay.weather[0].description == "light snow") {
-    return "src/svg/snowy-1.svg";
-  } else if (forecastDay.weather[0].description == "mist") {
-    return "src/svg/fog.svg";
-  } else if (forecastDay.weather[0].description == "light rain") {
-    return "src/svg/rainy-1-day.svg";
-  } else if (forecastDay.weather[0].description == "heavy snow") {
-    return "src/svg/snowy-3.svg";
+function getForecastIcon(response) {
+  if (response.data.weather[0].main == "Rain") {
+    forecastIcon.src = rainIcon;
+  } else if (response.data.weather[0].description == "broken clouds") {
+    forecastIcon.src = brokenCloudsIcon;
+  } else if (response.data.weather[0].main == "Drizzle") {
+    forecastIcon.src = drizzleIcon;
+  } else if (response.data.weather[0].main == "Snow") {
+    forecastIcon.src = snowIcon;
+  } else if (response.data.weather[0].main == "Clear") {
+    forecastIcon.src = clearIcon;
+  } else if (response.data.weather[0].main == "Thunderstorm") {
+    forecastIcon.src = ThunderstormIcon;
+  } else if (response.data.weather[0].description == "few clouds") {
+    forecastIcon.src = fewCloudsIcon;
+  } else if (response.data.weather[0].description == "freezing rain") {
+    forecastIcon.src = freezingRainIcon;
+  } else if (response.data.weather[0].description == "scattered clouds") {
+    forecastIcon.src = scatteredCloudsIcon;
+  } else if (response.data.weather[0].description == "overcast clouds") {
+    forecastIcon.src = overcastIcon;
+  } else if (response.data.weather[0].description == "light snow") {
+    forecastIcon.src = lightSnowIcon;
+  } else if (response.data.weather[0].description == "mist") {
+    forecastIcon.src = mistIcon;
+  } else if (response.data.weather[0].description == "light rain") {
+    forecastIcon.src = lightRainIcon;
+  } else if (response.data.weather[0].description == "heavy snow") {
+    forecastIcon.src = heavySnowIcon;
   }
 }
+// Cancel function changeWeatherIcon and getForecastIcon for NETLIFY
+
+//function getForecastIcon(forecastDay) {
+//if (forecastDay.weather[0].main == "Clear") {
+//return "src/svg/sunny-day.svg";
+//} else if (forecastDay.weather[0].description == "broken clouds") {
+//return "src/svg/cloudy.svg";
+//} else if (forecastDay.weather[0].main == "Drizzle") {
+//return "src/svg/cloudy-day-1.svg";
+//} else if (forecastDay.weather[0].main == "Snow") {
+//return "src/svg/rainy-1.svg";
+//} else if (forecastDay.weather[0].main == "Rain") {
+//return "src/svg/rain.svg";
+//} else if (forecastDay.weather[0].main == "Thunderstorm") {
+//return "src/svg/sunny-day.svg";
+//} else if (forecastDay.weather[0].description == "few clouds") {
+//return "src/svg/fair-day.svg";
+//} else if (forecastDay.weather[0].description == "freezing rain") {
+//return "src/svg/cloudy-day-1.svg";
+//} else if (forecastDay.weather[0].description == "scattered clouds") {
+//return "src/svg/cloudy-day-3.svg";
+//} else if (forecastDay.weather[0].description == "overcast clouds") {
+//return "src/svg/cloudy-day-3.svg";
+//} else if (forecastDay.weather[0].description == "light snow") {
+//return "src/svg/snowy-1.svg";
+//} else if (forecastDay.weather[0].description == "mist") {
+//return "src/svg/fog.svg";
+//} else if (forecastDay.weather[0].description == "light rain") {
+//return "src/svg/rainy-1-day.svg";
+//} else if (forecastDay.weather[0].description == "heavy snow") {
+// return "src/svg/snowy-3.svg";
+//}
+//}
+//function changeWeatherIcon(response) {
+//if (response.data.weather[0].main == "Rain") {
+//weatherIcon.src = "src/svg/rain.svg";
+//} else if (response.data.weather[0].description == "broken clouds") {
+//weatherIcon.src = "src/svg/cloudy.svg";
+//} else if (response.data.weather[0].main == "Drizzle") {
+//weatherIcon.src = "src/svg/cloudy-day-1.svg";
+//} else if (response.data.weather[0].main == "Snow") {
+//weatherIcon.src = "src/svg/rainy-1.svg";
+//} else if (response.data.weather[0].main == "Clear") {
+// weatherIcon.src = "src/svg/snowy-2.svg";
+//} else if (response.data.weather[0].main == "Thunderstorm") {
+//weatherIcon.src = "src/svg/sunny-day.svg";
+//} else if (response.data.weather[0].description == "few clouds") {
+//weatherIcon.src = "src/svg/thunder.svg";
+//} else if (response.data.weather[0].description == "freezing rain") {
+//weatherIcon.src = "src/svg/cloudy-day-1.svg";
+//} else if (response.data.weather[0].description == "scattered clouds") {
+//weatherIcon.src = "src/svg/cloudy-day-3.svg";
+//} else if (response.data.weather[0].description == "overcast clouds") {
+//weatherIcon.src = "src/svg/cloudy-day-3.svg";
+//} else if (response.data.weather[0].description == "light snow") {
+//weatherIcon.src = "src/svg/snowy-1.svg";
+//} else if (response.data.weather[0].description == "mist") {
+//weatherIcon.src = "src/svg/fog.svg";
+//} else if (response.data.weather[0].description == "light rain") {
+//weatherIcon.src = "src/svg/rainy-1-day.svg";
+//} else if (response.data.weather[0].description == "heavy snow") {
+//weatherIcon.src = "src/svg/snowy-3.svg";
+// }
+//}
