@@ -1,20 +1,3 @@
-//cancel out importing files for DESKTOP usage
-
-// import rainIcon from "./svg/rain.svg";
-// import overcastIcon from "./svg/cloudy.svg";
-// import brokenCloudsIcon from "./svg/cloudy-day-1.svg";
-// import drizzleIcon from "./svg/rainy-1.svg";
-// import snowIcon from "./svg/snowy-2.svg";
-// import clearIcon from "./svg/day.svg";
-// import ThunderstormIcon from "./svg/thunder.svg";
-// import fewCloudsIcon from "./svg/cloudy-day-1.svg";
-// import freezingRainIcon from "./svg/rain-and-snow-mix.svg";
-// import scatteredCloudsIcon from "./svg/cloudy-day-3.svg";
-// import lightSnowIcon from "./svg/snowy-1.svg";
-// import mistIcon from "./svg/fog.svg";
-// import lightRainIcon from "./svg/rainy-1-day.svg";
-// import heavySnowIcon from "./svg/snowy-3.svg";
-
 // Date and Time code
 
 let p = document.querySelector("dateTime1");
@@ -194,72 +177,7 @@ function getCurrentLocation(event) {
 let button = document.querySelector("#currentLocation");
 button.addEventListener("click", getCurrentLocation);
 
-// Cancel function changeWeatherIcon and getForecastIcon for DESKTOP
-
-// function changeWeatherIcon(response) {
-//   if (response.data.weather[0].main == "Rain") {
-//     weatherIcon.src = rainIcon;
-//   } else if (response.data.weather[0].description == "broken clouds") {
-//     weatherIcon.src = brokenCloudsIcon;
-//   } else if (response.data.weather[0].main == "Drizzle") {
-//     weatherIcon.src = drizzleIcon;
-//   } else if (response.data.weather[0].main == "Snow") {
-//     weatherIcon.src = snowIcon;
-//   } else if (response.data.weather[0].main == "Clear") {
-//     weatherIcon.src = clearIcon;
-//   } else if (response.data.weather[0].main == "Thunderstorm") {
-//     weatherIcon.src = ThunderstormIcon;
-//   } else if (response.data.weather[0].description == "few clouds") {
-//     weatherIcon.src = fewCloudsIcon;
-//   } else if (response.data.weather[0].description == "freezing rain") {
-//     weatherIcon.src = freezingRainIcon;
-//   } else if (response.data.weather[0].description == "scattered clouds") {
-//     weatherIcon.src = scatteredCloudsIcon;
-//   } else if (response.data.weather[0].description == "overcast clouds") {
-//     weatherIcon.src = overcastIcon;
-//   } else if (response.data.weather[0].description == "light snow") {
-//     weatherIcon.src = lightSnowIcon;
-//   } else if (response.data.weather[0].description == "mist") {
-//     weatherIcon.src = mistIcon;
-//   } else if (response.data.weather[0].description == "light rain") {
-//     weatherIcon.src = lightRainIcon;
-//   } else if (response.data.weather[0].description == "heavy snow") {
-//     weatherIcon.src = heavySnowIcon;
-//   }
-// }
-
-// function getForecastIcon(response) {
-//   if (response.data.weather[0].main == "Rain") {
-//     forecastIcon.src = rainIcon;
-//   } else if (response.data.weather[0].description == "broken clouds") {
-//     forecastIcon.src = brokenCloudsIcon;
-//   } else if (response.data.weather[0].main == "Drizzle") {
-//     forecastIcon.src = drizzleIcon;
-//   } else if (response.data.weather[0].main == "Snow") {
-//     forecastIcon.src = snowIcon;
-//   } else if (response.data.weather[0].main == "Clear") {
-//     forecastIcon.src = clearIcon;
-//   } else if (response.data.weather[0].main == "Thunderstorm") {
-//     forecastIcon.src = ThunderstormIcon;
-//   } else if (response.data.weather[0].description == "few clouds") {
-//     forecastIcon.src = fewCloudsIcon;
-//   } else if (response.data.weather[0].description == "freezing rain") {
-//     forecastIcon.src = freezingRainIcon;
-//   } else if (response.data.weather[0].description == "scattered clouds") {
-//     forecastIcon.src = scatteredCloudsIcon;
-//   } else if (response.data.weather[0].description == "overcast clouds") {
-//     forecastIcon.src = overcastIcon;
-//   } else if (response.data.weather[0].description == "light snow") {
-//     forecastIcon.src = lightSnowIcon;
-//   } else if (response.data.weather[0].description == "mist") {
-//     forecastIcon.src = mistIcon;
-//   } else if (response.data.weather[0].description == "light rain") {
-//     forecastIcon.src = lightRainIcon;
-//   } else if (response.data.weather[0].description == "heavy snow") {
-//     forecastIcon.src = heavySnowIcon;
-//   }
-// }
-// Cancel function changeWeatherIcon and getForecastIcon for NETLIFY
+//Weather Icons
 
 function getForecastIcon(forecastDay) {
   if (forecastDay.weather[0].main == "Clear") {
