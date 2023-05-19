@@ -108,11 +108,15 @@ function showTemperature(response) {
   let h2 = document.querySelector("h2");
   let temperature = Math.round(response.data.main.temp);
   console.log(response.data);
+  console.log(response.data.sys.country);
   let button1 = document.querySelector("#mainTemperature");
   let tempDescription = response.data.weather[0].description;
   let windSpeed1 = Math.round(response.data.wind.speed);
   let humdity1 = response.data.main.humidity;
-  h2.innerHTML = response.data.name;
+  let city = response.data.name;
+  let country = response.data.sys.country;
+
+  h2.innerHTML = `${city}, ${country}`;
 
   button1.innerHTML = `${temperature}°C`;
   weatherText.innerHTML = `${tempDescription}`;
